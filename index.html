@@ -17,51 +17,52 @@
 
     <!-- Header area -->
     
-    <header>
-        <h1 class="heading"><img class="logo" src="assets/images/logo.webp" alt="Love Maths Heart Logo"> Love Maths
-        </h1>
-    </header>
+     <h1 class="heading">
+        <img class="logo" src="assets/images/logo.webp" alt="Love Maths Heart Logo"> Love Maths
+    </h1>
     
     <!-- Main Game content area .game-area -->
-    <main>
-       <section>
-        <div class="game-area">
-            <!-- The button controls for the game -->
-            <div class="controls-area">
-            <button class="btn btn--big btn--green"><i class="fas fa-plus"></i></button>
-            <button class="btn btn--big btn--blue"><i class="fas fa-minus"></i></button>
-            <button class="btn btn--big btn--orange"><i class="fas fa-times"></i></button>
-            <button class="btn btn--big btn--red"><i class="fas fa-divide"></i></button>
-            </div>
+    <div class="game-area">
+        <div class="controls-area">
+            <button data-type="addition" class="btn btn--big btn--green">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button data-type="subtract" class="btn btn--big btn--blue">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button data-type="multiply" class="btn btn--big btn--orange">
+                <i class="fas fa-times"></i>
+            </button>
+            <button data-type="division" class="btn btn--big btn--red">
+                <i class="fas fa-divide"></i>
+            </button>
+        </div>
         
 <!-- Input answer section .question-area -->
        
-<div class="question-area">
-    <span id="operand1">0</span>
-    <span id="operator">x</span>
-    <span id="operand2">0</span>
+      <div class="question-area">
+            <span id="operand1">0</span>
+            <span id="operator">x</span>
+            <span id="operand2">0</span>
     <!-- = does not need an ID as not references in javascript -->
-    <span>=</span> 
-    <p class="answer-message">Enter your answer:</p>
-    <input type="number" id="answer-box">
+     <span>=</span>
+            <p class="answer-message">Enter Answer:</p>
+            <input id="answer-box" type="number">
         </div>
-     
-    <!-- Submit button -->
+    <!-- Submit button [ data-type="submit" will allow for event listener] -->
 
-        <button class="btn btn-gray">Submit Answer</button>
-
-</div>
+        <button data-type="submit" class="btn btn--gray">Submit Answer</button>
+    </div>
 
 <!-- Score section .score-area -->
         
-<div class="score-area">
-    <p class="scores">Correct Answers: <span id="correct-answers">0</span></p>    
-    <p class="scores">Incorrect Answers: <span id="incorrect-answers">0</span></p>
-        </div>
-        
-</section>
+    <div class="score-area">
+        <p class="scores">Correct Answers <span id="score">0</span></p>
+        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+    </div>
 
-    </main>
+
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
