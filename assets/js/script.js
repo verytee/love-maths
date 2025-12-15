@@ -13,23 +13,34 @@ if (this.getAttribute("data-type") === "submit") { // this. refers to the button
     alert("You clicked Submit!");
  } else { // if button clicked is not submit
     let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);
- }
+runGame(gameType); // run the game with the game type}
+         }
         });
     }
-});
+
+runGame("addition");
+
+}); // end of DOM content loaded event listener
 
 
 /**
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
  */
-function runGame() {
+function runGame(gameType) // run game function with game type parameter
+{
     // Game logic here
 
     // Generate two random numbers between 1 and 25 (+1 to include 25 and not 0)
 let num1 = Math.floor(Math.random() * 25) + 1;
 let num2 = Math.floor(Math.random() * 25) + 1;
+
+if (gameType === "addition") {
+    displayAdditionQuestion(num1, num2); // call display addition or else throw error
+} else {
+    alert(`Unknown game type: ${gameType}`);
+    throw `Unknown game type: ${gameType}. Aborting!`; // throw error if unknown game type 
+}   
 }
 
 
@@ -49,8 +60,11 @@ function incrementWrongAnswer() {
     // Wrong answer increment logic here
 }
 
-function displayAdditionQuestion() {
+function displayAdditionQuestion(opperand1, operand2) {
     // Display addition question logic here
+    document.getElementById("operand1").textContent = opperand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "+";
 }
 
 function displaySubtractQuestion() {
