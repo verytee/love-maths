@@ -19,9 +19,19 @@ if (this.getAttribute("data-type") === "submit") { // this. refers to the button
     }
 });
 
+
+/**
+ * The main game "loop", called when the script is first loaded
+ * and after the user's answer has been processed
+ */
 function runGame() {
     // Game logic here
+
+    // Generate two random numbers between 1 and 25 (+1 to include 25 and not 0)
+let num1 = Math.floor(Math.random() * 25) + 1;
+let num2 = Math.floor(Math.random() * 25) + 1;
 }
+
 
 function checkAnswer() {
     // Answer checking logic here
