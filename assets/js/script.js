@@ -36,8 +36,14 @@ let num1 = Math.floor(Math.random() * 25) + 1;
 let num2 = Math.floor(Math.random() * 25) + 1;
 
 if (gameType === "addition") {
-    displayAdditionQuestion(num1, num2); // call display addition or else throw error
-} else {
+    displayAdditionQuestion(num1, num2); // call display addition
+} else if (gameType === "multiply") {
+displayMultiplyQuestion(num1, num2); // call display multiplication
+} else if (gameType === "subtract") {
+displaySubtractQuestion(num1, num2); // call display subtraction
+} else if (gameType === "division") {
+    displayDivisionQuestion(num1, num2); // call display division
+} else {    
     alert(`Unknown game type: ${gameType}`);
     throw `Unknown game type: ${gameType}. Aborting!`; // throw error if unknown game type 
 }   
@@ -76,8 +82,14 @@ function calculateCorrectAnswer() {
         let operand2 = parseInt(document.getElementById("operand2").innerText);
         let operator = document.getElementById("operator").innerText;
 
-        if (operator === "+") { // if operator is addition then do addition, or throw error
+        if (operator === "+") { // if operator is addition then do addition
             return [operand1 + operand2, "addition"];
+        } else if (operator === "x") { // if operator is multiplication then do multiplication
+            return [operand1 * operand2, "multiply"];
+        } else if (operator === "-") { // if operator is subtraction then do subtraction
+            return [operand1 - operand2, "subtract"];
+        } else if (operator === "/") { // if operator is division then do division, or throw error
+            return [Math.floor(operand1 / operand2), "division"];
         } else {
             alert(`Unimplemented operator ${operator}`); //alert
             throw `Unimplemented operator ${operator}. Aborting!`; // throw to console
@@ -105,30 +117,30 @@ function incrementWrongAnswer() {
     document.getElementById("incorrect").innerText = ++oldScore; // increment old score and set new score in DOM
 }
 
-function displayAdditionQuestion(opperand1, operand2) {
+function displayAdditionQuestion(operand1, operand2) {
     // Display addition question logic here
-    document.getElementById("operand1").textContent = opperand1;
+    document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "+";
 }
 
-function displaySubtractQuestion() {
+function displaySubtractQuestion(operand1, operand2) {
     // Display subtraction question logic here
-        document.getElementById("operand1").textContent = opperand1;
+        document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "-";
 }
 
-function displayMultiplyQuestion() {
+function displayMultiplyQuestion(operand1, operand2) {
     // Display multiplication question logic here
-        document.getElementById("operand1").textContent = opperand1;
+        document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "x";
 }   
 
-function displayDivisionQuestion() {
+function displayDivisionQuestion(operand1, operand2) {
     // Display division question logic here
-        document.getElementById("operand1").textContent = opperand1;
+        document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 }
