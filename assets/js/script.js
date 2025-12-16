@@ -18,6 +18,12 @@ runGame(gameType); // run the game with the game type}
         });
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") { // if enter key is pressed
+            checkAnswer(); // call check answer function
+        }
+    });
+
 runGame("addition"); // default to addition game on page load
 
 }); // end of DOM content loaded event listener
@@ -30,6 +36,9 @@ runGame("addition"); // default to addition game on page load
 function runGame(gameType) // run game function with game type parameter
 {
     // Game logic here
+document.getElementById("answer-box").value = ""; // clear the answer box for new question
+document.getElementById("answer-box").focus(); // focus on the answer box for new question
+
 
     // Generate two random numbers between 1 and 25 (+1 to include 25 and not 0)
 let num1 = Math.floor(Math.random() * 25) + 1;
