@@ -18,7 +18,7 @@ runGame(gameType); // run the game with the game type}
         });
     }
 
-runGame("addition");
+runGame("addition"); // default to addition game on page load
 
 }); // end of DOM content loaded event listener
 
@@ -69,12 +69,21 @@ function displayAdditionQuestion(opperand1, operand2) {
 
 function displaySubtractQuestion() {
     // Display subtraction question logic here
+        document.getElementById("operand1").textContent = opperand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "-";
 }
 
 function displayMultiplyQuestion() {
     // Display multiplication question logic here
+        document.getElementById("operand1").textContent = opperand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "x";
 }   
 
 function displayDivisionQuestion() {
     // Display division question logic here
+        document.getElementById("operand1").textContent = opperand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "/";
 }
