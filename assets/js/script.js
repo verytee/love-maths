@@ -149,9 +149,9 @@ function displayMultiplyQuestion(operand1, operand2) {
 }   
 
 function displayDivisionQuestion(operand1, operand2) {
+    operand1 = operand1 * operand2; // multiply to ensure we get whole number results
     // Display division question logic here
-// ensure operand1 is always larger for division so that we don't get fractions
-        document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2 * operand1;
-    document.getElementById("operand2").textContent = operand2 > operand1 ? operand1 : operand2;
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 }
