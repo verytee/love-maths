@@ -54,10 +54,12 @@ let calculatedAnswer = calculateCorrectAnswer(); // call calculate correct answe
 let isCorrect = userAnswer === calculatedAnswer[0]; // check if user answer is equal to calculated answer
 if (isCorrect) { // if correct
     alert(`Booyah! You got it right you lil genius! 
-        Of course the correct answer is ${userAnswer}!`);
+    Of course the correct answer is ${userAnswer}!`);
+        incrementScore() // increment score if correct
 } else { // if wrong
-    alert(`Noooo you answered ${userAnswer} but correct answer was of course ${calculatedAnswer[0]}. 
-        Shake it off and have another go!`);
+    alert(`Noooo you answered ${userAnswer} but correct answer was of course ${calculatedAnswer[0]}! 
+    Shake it off and have another go.`);
+        incrementWrongAnswer(); // increment wrong answer if wrong
 }
 runGame(calculatedAnswer[1]); // run game again with the game type from calculated answer
 }
@@ -82,12 +84,25 @@ function calculateCorrectAnswer() {
         }
 }
 
+
+/**
+ * Gets the current score from the DOM and increments it by 1 if right
+ */
+
 function incrementScore() {
     // Score increment logic here
+    let oldScore = parseInt(document.getElementById("score").innerText); // get old score from DOM and parse to integer
+    document.getElementById("score").innerText = ++oldScore; // increment old score and set new score in DOM
 }
+
+/**
+ * Gets the current incorrect score from the DOM and increments it by 1 if wrong
+ */
 
 function incrementWrongAnswer() {
     // Wrong answer increment logic here
+    let oldScore = parseInt(document.getElementById("incorrect").innerText); // get old score from DOM and parse to integer
+    document.getElementById("incorrect").innerText = ++oldScore; // increment old score and set new score in DOM
 }
 
 function displayAdditionQuestion(opperand1, operand2) {
